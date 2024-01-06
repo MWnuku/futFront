@@ -1,4 +1,9 @@
-<div *ngFor="let campaign of campaigns">
-  <app-campaign-display [campaign]="campaign"></app-campaign-display>
-</div>
+<div class="main">
+  <h1>Add a new Campaign</h1>
+  <app-campaign-input (newDataEvent)="appendData($event)"/>
 
+  <h2>My campaigns</h2>
+  <div *ngFor="let campaign of campaigns">
+    <app-campaign-display [campaign]="campaign"></app-campaign-display>
+  </div>
+</div>

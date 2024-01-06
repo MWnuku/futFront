@@ -10,12 +10,18 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
+
   getAllCampaigns(){
     return this.http.get<Campaign[]>(this.url);
   }
 
   getCampaignById(id: number){
-    const campaignUrl = `${this.url}/%id`;
-    return this.http.get<Campaign>(this.url);
+    const campaignUrl = `${this.url}/%{id}`;
+    return this.http.get<Campaign>(campaignUrl);
+  }
+
+  addCampaign(campaign: Campaign) {
+    const campaignUrl = `${this.url}/add`;
+    return this.http.post<Campaign>(campaignUrl, campaign);
   }
 }

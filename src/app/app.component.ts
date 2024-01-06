@@ -11,14 +11,23 @@ import {
 import {
   CampaignDisplayComponent
 } from "./campaign-display/campaign-display.component";
-import {NgForOf} from "@angular/common";
+import {
+  CommonModule,
+  NgForOf
+} from "@angular/common";
+import {
+  CampaignInputComponent
+} from "./campaign-input/campaign-input.component";
+import {
+  BrowserAnimationsModule
+} from "@angular/platform-browser/animations";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['app.component.css'],
   standalone: true,
-  imports: [HttpClientModule, CampaignDisplayComponent, NgForOf],
+  imports: [HttpClientModule, CampaignDisplayComponent, NgForOf, CampaignInputComponent, BrowserAnimationsModule],
   providers: [AppService]
 })
 export class AppComponent {
@@ -36,16 +45,10 @@ export class AppComponent {
     error: err => console.error('An error occurred :', err),
     complete: () => console.log('There are no more action happen.')
   });
-  }}
+  }
 
-//   metoda(){
-//     this.appService.getAllCampaigns().subscribe({
-//       next: campaign => {
-//         console.log('The next value is: ', campaign);
-//         this.campaigns = campaign;
-//       },
-//       error: err => console.error('An error occurred :', err),
-//       complete: () => console.log('There are no more action happen.')
-//     });
-//   }
-// }
+  appendData(newCampaign: Campaign){
+    this.campaigns.push(newCampaign);
+  }
+}
+
