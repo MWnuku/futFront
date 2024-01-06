@@ -3,7 +3,8 @@
   <app-campaign-input (newDataEvent)="onNewDataEvent($event)"/>
 
   <h2>My campaigns</h2>
-  <div *ngFor="let campaign of campaigns">
+  <div *ngFor="let campaign of campaigns"
+  (removeItemEvent)="removeItem($event)">
     <app-campaign-display [campaign]="campaign"></app-campaign-display>
   </div>
 </div>

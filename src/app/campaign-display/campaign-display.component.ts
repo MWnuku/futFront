@@ -1,5 +1,5 @@
 import {
-  Component,
+  Component, EventEmitter,
   Input, Output
 } from '@angular/core';
 import {
@@ -41,5 +41,5 @@ export class CampaignDisplayComponent {
     ],
     town: Town.Krakow
   }
-  @Output()
+  @Output() removeItemEvent = new EventEmitter();
 }

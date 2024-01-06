@@ -24,4 +24,9 @@ export class AppService {
     const campaignUrl = `${this.url}/add`;
     return this.http.post<Campaign>(campaignUrl, campaign);
   }
+
+  deleteCampaign(id: number){
+    const campaignUrl=`${this.url}/delete/%{id}`;
+    this.http.delete(campaignUrl);
+  }
 }
