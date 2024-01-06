@@ -15,6 +15,7 @@ export class AppService {
   }
 
   getCampaignById(id: number){
+    const campaignUrl = `${this.url}/%id`;
     return this.http.get<Campaign>(this.url);
   }
 

@@ -23,7 +23,16 @@ export class AppComponent {
   title = 'futFront';
   campaigns: Campaign[] = [];
 
-  constructor(private appService: AppService) {
-    this.appService.getAllCampaigns().subscribe();
+  constructor(private appService: AppService) {  }
+  ngOnInit() {
+    this.appService.getAllCampaigns().subscribe(
+      (campaigns: Campaign[]) => {
+        this.campaigns = campaigns;
+        console.log('Campaigns:', this.campaigns);
+      },
+      (error) => {
+        console.error('Error fetching campaigns:', error);
+      }
+    );
   }
 }
