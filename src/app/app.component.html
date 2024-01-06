@@ -1,2 +1,4 @@
-<div>asd</div>
-<button (click)="metoda()">get by id</button>
+<div *ngFor="let campaign of campaigns">
+  <app-campaign-display [campaign]="campaign"></app-campaign-display>
+</div>
+
