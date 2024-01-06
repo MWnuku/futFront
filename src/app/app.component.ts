@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
 import {
   Campaign
 } from "./models/campaign";
@@ -8,7 +6,7 @@ import {
   AppService
 } from "./app.service";
 import {
-  HttpClient, HttpClientModule
+  HttpClientModule
 } from "@angular/common/http";
 
 @Component({
@@ -23,16 +21,19 @@ export class AppComponent {
   title = 'futFront';
   campaigns: Campaign[] = [];
 
-  constructor(private appService: AppService) {  }
-  ngOnInit() {
-    this.appService.getAllCampaigns().subscribe(
-      (campaigns: Campaign[]) => {
-        this.campaigns = campaigns;
-        console.log('Campaigns:', this.campaigns);
+  constructor(private appService: AppService) {
+  }
+
+  ngOnInit() {}
+
+  metoda(){
+    this.appService.getAllCampaigns().subscribe({
+      next: campaign => {
+        console.log('The next value is: ', campaign);
+        this.campaigns = campaign;
       },
-      (error) => {
-        console.error('Error fetching campaigns:', error);
-      }
-    );
+      error: err => console.error('An error occurred :', err),
+      complete: () => console.log('There are no more action happen.')
+    });
   }
 }
