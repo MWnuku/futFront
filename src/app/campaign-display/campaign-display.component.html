@@ -3,4 +3,8 @@
     <mat-card-title>{{ campaign.name }} {{ campaign.seller.companyName }}</mat-card-title>
     <mat-card-subtitle>{{ campaign.status }}</mat-card-subtitle>
   </mat-card-header>
+  <mat-card-actions align="end">
+    <button (click)="removeItemEvent.emit(campaign.id)" mat-button>Delete</button>
+
+  </mat-card-actions>
 </mat-card>

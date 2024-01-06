@@ -27,7 +27,9 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['app.component.css'],
   standalone: true,
-  imports: [HttpClientModule, CampaignDisplayComponent, NgForOf, CampaignInputComponent, BrowserAnimationsModule],
+  imports: [HttpClientModule,
+    CampaignDisplayComponent, NgForOf,
+    CampaignInputComponent, CommonModule],
   providers: [AppService]
 })
 export class AppComponent {
@@ -49,6 +51,10 @@ export class AppComponent {
 
   appendData(newCampaign: Campaign){
     this.campaigns.push(newCampaign);
+  }
+
+  onNewDataEvent(newCampaign: Campaign) {
+    this.appendData(newCampaign);
   }
 }
 

@@ -1,6 +1,6 @@
 import {
   Component,
-  Input
+  Input, Output
 } from '@angular/core';
 import {
   MatButtonModule
@@ -41,4 +41,5 @@ export class CampaignDisplayComponent {
     ],
     town: Town.Krakow
   }
+  @Output()
 }

@@ -1,6 +1,6 @@
 <div class="main">
   <h1>Add a new Campaign</h1>
-  <app-campaign-input (newDataEvent)="appendData($event)"/>
+  <app-campaign-input (newDataEvent)="onNewDataEvent($event)"/>
 
   <h2>My campaigns</h2>
   <div *ngFor="let campaign of campaigns">
