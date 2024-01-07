@@ -148,7 +148,7 @@
         },
         {
           "file": "src/app/campaign-display/campaign-display.component.html",
-          "hash": "17838151052664075496"
+          "hash": "10554696043858681567"
         },
         {
           "file": "src/app/campaign-display/campaign-display.component.spec.ts",
@@ -159,7 +159,7 @@
         },
         {
           "file": "src/app/campaign-display/campaign-display.component.ts",
-          "hash": "6558595916428874739",
+          "hash": "6344477436136667766",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/material",

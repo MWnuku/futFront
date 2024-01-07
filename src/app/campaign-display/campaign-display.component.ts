@@ -14,12 +14,15 @@ import {
 import {Town} from "../models/town";
 import {Tag} from "../models/tag";
 import {KeywordEnum} from "../models/keyword-enum";
-import {NgIf} from "@angular/common";
+import {
+  JsonPipe,
+  NgIf
+} from "@angular/common";
 
 @Component({
   selector: 'app-campaign-display',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule, NgIf],
+  imports: [MatButtonModule, MatCardModule, NgIf, JsonPipe],
   templateUrl: './campaign-display.component.html',
   styleUrl: './campaign-display.component.css'
 })
@@ -43,4 +46,8 @@ export class CampaignDisplayComponent {
   }
   @Output() removeItemEvent = new EventEmitter<number>();
   @Output() editItemEvent = new EventEmitter<number>();
+
+  getTagKeywords(tags: Tag[]): string {
+    return tags.map(tag => tag.keyword).join(', ');
+  }
 }

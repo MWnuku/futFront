@@ -1,7 +1,17 @@
 <mat-card *ngIf="campaign">
   <mat-card-header>
-    <mat-card-title>{{ campaign.name }} {{ campaign.seller.companyName }} {{ campaign.seller.name }} {{ campaign.seller.lastName }}</mat-card-title>
-    <mat-card-subtitle>{{ campaign.status }} {{ campaign.tags }} {{ campaign.radius }} {{ campaign.bidAmount }} {{ campaign.town }}</mat-card-subtitle>
+    <mat-card-title>
+      Company name: {{ campaign.seller.companyName }} <br>
+      Seller: {{ campaign.seller.name }} {{ campaign.seller.lastName }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      Name: {{ campaign.name }}
+      Status: {{ campaign.status }}<br>
+      Tags: {{ getTagKeywords(campaign.tags) }}<br>
+      Radius: {{ campaign.radius }}<br>
+      Bid Amount: {{ campaign.bidAmount }}<br>
+      Town: {{ campaign.town }}
+    </mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
     <button (click)="editItemEvent.emit(campaign.id)" mat-button>Edit</button>
