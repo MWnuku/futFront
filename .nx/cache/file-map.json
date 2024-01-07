@@ -100,7 +100,7 @@
         },
         {
           "file": "src/app/app.component.html",
-          "hash": "8276070590677507681"
+          "hash": "15756138200937545648"
         },
         {
           "file": "src/app/app.component.spec.ts",
@@ -111,11 +111,12 @@
         },
         {
           "file": "src/app/app.component.ts",
-          "hash": "6213890382377938359",
+          "hash": "893981136077104122",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
-            "npm:@angular/platform-browser"
+            "npm:@angular/platform-browser",
+            "npm:rxjs"
           ]
         },
         {
@@ -171,7 +172,7 @@
         },
         {
           "file": "src/app/campaign-edit/campaign-edit.component.html",
-          "hash": "8500955151655311044"
+          "hash": "6176691223948950108"
         },
         {
           "file": "src/app/campaign-edit/campaign-edit.component.spec.ts",
@@ -182,11 +183,12 @@
         },
         {
           "file": "src/app/campaign-edit/campaign-edit.component.ts",
-          "hash": "3774092781801794933",
+          "hash": "8074898153581268805",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/forms",
-            "npm:@angular/material"
+            "npm:@angular/material",
+            "npm:@angular/common"
           ]
         },
         {
@@ -220,7 +222,7 @@
         },
         {
           "file": "src/app/campaign-wrapper/campaign-wrapper.component.html",
-          "hash": "5868110191981325746"
+          "hash": "4383497583059347224"
         },
         {
           "file": "src/app/campaign-wrapper/campaign-wrapper.component.spec.ts",
@@ -231,7 +233,7 @@
         },
         {
           "file": "src/app/campaign-wrapper/campaign-wrapper.component.ts",
-          "hash": "11837128407699651242",
+          "hash": "4059357429072689777",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common"
@@ -239,7 +241,7 @@
         },
         {
           "file": "src/app/models/campaign.ts",
-          "hash": "7451765192107167197"
+          "hash": "14452177291187632150"
         },
         {
           "file": "src/app/models/keyword-enum.ts",
@@ -288,7 +290,7 @@
         },
         {
           "file": "tsconfig.json",
-          "hash": "3343339550490537441"
+          "hash": "16991038211522474346"
         },
         {
           "file": "tsconfig.spec.json",
