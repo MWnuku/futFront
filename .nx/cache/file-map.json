@@ -148,7 +148,7 @@
         },
         {
           "file": "src/app/campaign-display/campaign-display.component.html",
-          "hash": "10554696043858681567"
+          "hash": "3631307598527031017"
         },
         {
           "file": "src/app/campaign-display/campaign-display.component.spec.ts",
@@ -172,7 +172,7 @@
         },
         {
           "file": "src/app/campaign-edit/campaign-edit.component.html",
-          "hash": "6176691223948950108"
+          "hash": "14790935652875492022"
         },
         {
           "file": "src/app/campaign-edit/campaign-edit.component.spec.ts",
@@ -183,11 +183,12 @@
         },
         {
           "file": "src/app/campaign-edit/campaign-edit.component.ts",
-          "hash": "8074898153581268805",
+          "hash": "8562725509607113290",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/forms",
             "npm:@angular/material",
+            "npm:rxjs",
             "npm:@angular/common"
           ]
         },
@@ -197,7 +198,7 @@
         },
         {
           "file": "src/app/campaign-input/campaign-input.component.html",
-          "hash": "16115007948497868593"
+          "hash": "15498929425186508186"
         },
         {
           "file": "src/app/campaign-input/campaign-input.component.spec.ts",
@@ -208,7 +209,7 @@
         },
         {
           "file": "src/app/campaign-input/campaign-input.component.ts",
-          "hash": "3509020243024377100",
+          "hash": "3682487332814511822",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/forms",

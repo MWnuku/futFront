@@ -11,11 +11,15 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import {
+  MatAutocompleteModule
+} from "@angular/material/autocomplete";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-campaign-input',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatIconModule, MatDividerModule, MatButtonModule],
+  imports: [HttpClientModule, FormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatIconModule, MatDividerModule, MatButtonModule, MatAutocompleteModule, NgForOf],
   templateUrl: './campaign-input.component.html',
   styleUrls: ['./campaign-input.component.css']
 })
@@ -40,8 +44,17 @@ export class CampaignInputComponent {
     ],
     town: Town.Krakow
   };
+  availableTags: string[] = Object.values(KeywordEnum);
 
   constructor(private appService: AppService) {}
+  filterTags(value: string): string[] {
+    const filterValue = (value || '').toLowerCase();
+    return this.availableTags.filter(tag => tag.toLowerCase().includes(filterValue));
+  }
+  displayTag(tag: string): string {
+    return tag ? tag : '';
+  }
+
 
   onSubmit(): void {
     if (this.campaignForm.invalid) {
@@ -49,7 +62,8 @@ export class CampaignInputComponent {
     }
 
     this.campaign.name = this.campaignForm.value.name;
-    this.campaign.tags = this.campaignForm.value.tags.map((tagValue: string) => ({ keyword: tagValue }));
+    this.campaign.tags = Array.isArray(this.campaignForm.value.tags)
+      ? this.campaignForm.value.tags.map((tagValue: string) => ({ keyword: tagValue })) : [];
     this.campaign.status = this.campaignForm.value.status;
     this.campaign.town = this.campaignForm.value.town;
     this.campaign.radius = this.campaignForm.value.radius;
@@ -68,5 +82,6 @@ export class CampaignInputComponent {
         console.error('Error adding campaign:', error);
       }
     );
+
   }
 }

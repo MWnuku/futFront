@@ -1,19 +1,22 @@
 <form #editForm="ngForm" class="campaign-form" (ngSubmit)="onSubmit()">
   <mat-form-field class="campaign-full-width">
     <mat-label>Name</mat-label>
-    <input name="name" [(ngModel)] = "campaign.name" ngModel matInput>
+    <input name="name" [(ngModel)]="campaign.name" matInput>
   </mat-form-field>
 
-    <mat-autocomplete class="campaign-full-width" [(ngModel)]="tag" name="tag" ngModel multiple>
+  <mat-form-field class="campaign-full-width">
     <mat-label>Tags</mat-label>
-      @for(val of Object.values(KeywordEnum); track $index) {
-          <mat-option value={{val}}>{{ val }}</mat-option>
-      }
+    <input name="tags" [(ngModel)]="tag" matInput [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayTag">
+      <mat-option *ngFor="let keyword of filteredTags" [value]="keyword">
+        {{ keyword }}
+      </mat-option>
     </mat-autocomplete>
+  </mat-form-field>
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Status</mat-label>
-    <mat-select name="status" [(ngModel)] = "campaign.status" ngModel>
+    <mat-select name="status" [(ngModel)]="campaign.status">
       <mat-option value="On">On</mat-option>
       <mat-option value="Off">Off</mat-option>
     </mat-select>
@@ -21,7 +24,7 @@
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Town</mat-label>
-    <mat-select name="town" [(ngModel)] = "campaign.town" ngModel>
+    <mat-select name="town" [(ngModel)]="campaign.town">
       <mat-option value="Krakow">Krakow</mat-option>
       <mat-option value="Warszawa">Warszawa</mat-option>
     </mat-select>
@@ -29,32 +32,32 @@
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Radius</mat-label>
-    <input name="radius" [(ngModel)] = "campaign.radius" ngModel matInput>
+    <input name="radius" [(ngModel)]="campaign.radius" matInput>
   </mat-form-field>
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Bid Amount</mat-label>
-    <input name="bidAmount" [(ngModel)] = "campaign.bidAmount" ngModel matInput>
+    <input name="bidAmount" [(ngModel)]="campaign.bidAmount" matInput>
   </mat-form-field>
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Seller Name</mat-label>
-    <input name="sellerName" [(ngModel)] = "campaign.seller.name" ngModel matInput>
+    <input name="sellerName" [(ngModel)]="campaign.seller.name" matInput>
   </mat-form-field>
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Seller Last Name</mat-label>
-    <input name="sellerLastName" [(ngModel)] = "campaign.seller.lastName" ngModel matInput>
+    <input name="sellerLastName" [(ngModel)]="campaign.seller.lastName" matInput>
   </mat-form-field>
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Company Name</mat-label>
-    <input name="companyName" [(ngModel)] = "campaign.seller.companyName" ngModel matInput>
+    <input name="companyName" [(ngModel)]="campaign.seller.companyName" matInput>
   </mat-form-field>
 
   <mat-form-field class="campaign-full-width">
     <mat-label>Balance</mat-label>
-    <input name="balance" [(ngModel)] = "campaign.seller.balance" ngModel matInput>
+    <input name="balance" [(ngModel)]="campaign.seller.balance" matInput>
   </mat-form-field>
 
   <button type="submit" mat-raised-button>Submit</button>

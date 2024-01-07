@@ -1,75 +1,78 @@
 import {
-  Component, ElementRef,
+  Component,
   EventEmitter,
-  Input, OnInit,
+  Input,
+  OnInit,
   Output,
   ViewChild
 } from '@angular/core';
 import {
+  FormBuilder,
+  FormGroup,
   FormsModule,
-  NgForm,
-  ReactiveFormsModule
-} from "@angular/forms";
+  Validators
+} from '@angular/forms';
 import {
-  MatButtonModule
-} from "@angular/material/button";
+  KeywordEnum
+} from '../models/keyword-enum';
 import {
-  MatFormFieldModule
-} from "@angular/material/form-field";
+  AppService
+} from '../app.service';
+import {
+  Campaign
+} from '../models/campaign';
+import {
+  MatAutocompleteModule
+} from '@angular/material/autocomplete';
 import {
   MatInputModule
 } from "@angular/material/input";
 import {
-  MatOptionModule
-} from "@angular/material/core";
-import {
-  MatSelectChange,
   MatSelectModule
 } from "@angular/material/select";
+import {NgForOf} from "@angular/common";
 import {
-  Campaign
-} from "../models/campaign";
-import {Town} from "../models/town";
-import {
-  AppService
-} from "../app.service";
-import { KeywordEnum } from '../models/keyword-enum';
-import {
-  CommonModule
-} from "@angular/common";
-import {Tag} from "../models/tag";
-import {
-  MatAutocompleteModule
-} from "@angular/material/autocomplete";
+  AppComponent
+} from "../app.component";
 
 @Component({
   selector: 'app-campaign-edit',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatOptionModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule
-  ],
   templateUrl: './campaign-edit.component.html',
-  styleUrl: './campaign-edit.component.css'
+  imports: [
+    FormsModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    NgForOf
+  ],
+  styleUrls: ['./campaign-edit.component.css']
 })
 export class CampaignEditComponent implements OnInit {
-  @ViewChild("editForm") editForm!: NgForm;
+  @ViewChild('editForm') editForm!: FormGroup;
   @Input() campaign: Campaign;
-
   @Output() editDataEvent = new EventEmitter();
   tag: KeywordEnum;
-  constructor(private appService: AppService) {}
+  filteredTags: KeywordEnum[];
+  availableTags: KeywordEnum[] = Object.values(KeywordEnum);
 
-  ngOnInit()
-  {
-    this.tag = this.campaign.tags[0].keyword
+  constructor(private formBuilder: FormBuilder, private appService: AppService) {}
+
+  ngOnInit() {
+    // Initialize the form with default values
+    this.editForm = this.formBuilder.group({
+      name: [this.campaign.name, Validators.required],
+      tags: [this.tag],
+      // Add other form controls here and initialize them with default values
+      status: [this.campaign.status],
+      town: [this.campaign.town],
+      radius: [this.campaign.radius],
+      bidAmount: [this.campaign.bidAmount],
+      // Add more form controls as needed
+    });
+
+    this.tag = this.campaign.tags[0].keyword;
+    this.filteredTags = this.availableTags.slice();
   }
 
   onSubmit(): void {
@@ -77,19 +80,37 @@ export class CampaignEditComponent implements OnInit {
       return;
     }
 
+    // Retrieve form values
+    const formValues = this.editForm.value;
+
+    // Update campaign object with form values
+    this.campaign.name = formValues.name;
+    this.campaign.tags[0].keyword = formValues.tags;
+    this.campaign.status = formValues.status;
+    this.campaign.town = formValues.town;
+    this.campaign.radius = formValues.radius;
+    this.campaign.bidAmount = formValues.bidAmount;
+
+    // Update the rest of the form fields as needed
 
     this.appService.updateCampaignById(this.campaign.id, this.campaign).subscribe(
       (addedCampaign) => {
         console.log('Campaign updated:', addedCampaign);
         this.editDataEvent.emit(addedCampaign);
-        this.editForm.resetForm();
+        this.editForm.reset(); // Reset the form
       },
       (error) => {
-        console.error('Error adding campaign:', error);
+        console.error('Error updating campaign:', error);
       }
     );
   }
 
-  protected readonly KeywordEnum = KeywordEnum;
-  protected readonly Object = Object;
+  displayTag(keyword: KeywordEnum): string {
+    return keyword ? keyword : '';
+  }
+
+  private _filter(value: string): KeywordEnum[] {
+    const filterValue = value.toLowerCase();
+    return this.availableTags.filter(keyword => keyword.toLowerCase().includes(filterValue));
+  }
 }
