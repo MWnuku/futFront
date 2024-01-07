@@ -1,0 +1,301 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.2.8",
+  "deps": {
+    "@angular/animations": "^17.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
+    "@angular/material": "^17.0.4",
+    "@angular/platform-browser": "^17.0.0",
+    "@angular/platform-browser-dynamic": "^17.0.0",
+    "@angular/router": "^17.0.0",
+    "@nrwl/angular": "^17.2.8",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.2",
+    "@angular-devkit/build-angular": "^17.0.9",
+    "@angular/cli": "^17.0.9",
+    "@angular/compiler-cli": "^17.0.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.2.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "futFront": [
+        {
+          "file": ".editorconfig",
+          "hash": "17241496168097493888"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "4689145951703824387"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "11934160580685414355"
+        },
+        {
+          "file": ".vscode/launch.json",
+          "hash": "17406702432687230417"
+        },
+        {
+          "file": ".vscode/tasks.json",
+          "hash": "10093397977228577162"
+        },
+        {
+          "file": "README.md",
+          "hash": "12067102822095130811"
+        },
+        {
+          "file": "angular.json",
+          "hash": "4751646600739737116"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "14413281582619392452"
+        },
+        {
+          "file": "package.json",
+          "hash": "4665522708986856003",
+          "deps": [
+            "npm:@angular/animations",
+            "npm:@angular/common",
+            "npm:@angular/compiler",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@angular/platform-browser",
+            "npm:@angular/platform-browser-dynamic",
+            "npm:@angular/router",
+            "npm:@nrwl/angular",
+            "npm:rxjs",
+            "npm:tslib",
+            "npm:zone.js",
+            "npm:@angular-devkit/build-angular",
+            "npm:@angular/cli",
+            "npm:@angular/compiler-cli",
+            "npm:@types/jasmine",
+            "npm:jasmine-core",
+            "npm:karma",
+            "npm:karma-chrome-launcher",
+            "npm:karma-coverage",
+            "npm:karma-jasmine",
+            "npm:karma-jasmine-html-reporter",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "src/app/app.component.css",
+          "hash": "4380388436652725352"
+        },
+        {
+          "file": "src/app/app.component.html",
+          "hash": "8276070590677507681"
+        },
+        {
+          "file": "src/app/app.component.spec.ts",
+          "hash": "1840377384752854981",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/app.component.ts",
+          "hash": "6213890382377938359",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "src/app/app.config.ts",
+          "hash": "5548986198782384011",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "src/app/app.routes.ts",
+          "hash": "809736233805555256",
+          "deps": [
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "src/app/app.service.ts",
+          "hash": "8009671199546887472",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/campaign-display/campaign-display.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/campaign-display/campaign-display.component.html",
+          "hash": "17838151052664075496"
+        },
+        {
+          "file": "src/app/campaign-display/campaign-display.component.spec.ts",
+          "hash": "9982876372177419658",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/campaign-display/campaign-display.component.ts",
+          "hash": "6558595916428874739",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "src/app/campaign-edit/campaign-edit.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/campaign-edit/campaign-edit.component.html",
+          "hash": "8500955151655311044"
+        },
+        {
+          "file": "src/app/campaign-edit/campaign-edit.component.spec.ts",
+          "hash": "633040206600726002",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/campaign-edit/campaign-edit.component.ts",
+          "hash": "3774092781801794933",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "src/app/campaign-input/campaign-input.component.css",
+          "hash": "9084605112894616194"
+        },
+        {
+          "file": "src/app/campaign-input/campaign-input.component.html",
+          "hash": "16115007948497868593"
+        },
+        {
+          "file": "src/app/campaign-input/campaign-input.component.spec.ts",
+          "hash": "10198002384408812049",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/campaign-input/campaign-input.component.ts",
+          "hash": "3509020243024377100",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/common",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "src/app/campaign-wrapper/campaign-wrapper.component.css",
+          "hash": "9084605112894616194"
+        },
+        {
+          "file": "src/app/campaign-wrapper/campaign-wrapper.component.html",
+          "hash": "5868110191981325746"
+        },
+        {
+          "file": "src/app/campaign-wrapper/campaign-wrapper.component.spec.ts",
+          "hash": "4085651795677962076",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/campaign-wrapper/campaign-wrapper.component.ts",
+          "hash": "11837128407699651242",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "src/app/models/campaign.ts",
+          "hash": "7451765192107167197"
+        },
+        {
+          "file": "src/app/models/keyword-enum.ts",
+          "hash": "8454824864168993949"
+        },
+        {
+          "file": "src/app/models/seller.ts",
+          "hash": "10236817002519989224"
+        },
+        {
+          "file": "src/app/models/tag.ts",
+          "hash": "14560963166509713496"
+        },
+        {
+          "file": "src/app/models/town.ts",
+          "hash": "15996674684160867560"
+        },
+        {
+          "file": "src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/favicon.ico",
+          "hash": "3988961587069885523"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "5086696679935363053"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "5473301275284839659",
+          "deps": [
+            "npm:@angular/platform-browser",
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "src/styles.css",
+          "hash": "4666677389704060830"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "13119632651406065538"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "3343339550490537441"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "5122839733245053999"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

@@ -1,0 +1,8 @@
+.campaign-full-width{
+  width: 100%;
+}
+.campaign-form{
+  min-width: 50px;
+  max-width: 300px;
+  width: 100%;
+}

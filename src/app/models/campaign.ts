@@ -2,7 +2,7 @@ import {Tag} from "./tag";
 import {Seller} from "./seller";
 import {Town} from "./town";
 
-export interface Campaign {
+export class Campaign {
   id?: number;
   name: string;
   tags: Tag[];

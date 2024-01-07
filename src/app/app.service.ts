@@ -16,7 +16,7 @@ export class AppService {
   }
 
   getCampaignById(id: number){
-    const campaignUrl = `${this.url}/%{id}`;
+    const campaignUrl = `${this.url}/${id}`;
     return this.http.get<Campaign>(campaignUrl);
   }
 
@@ -26,7 +26,12 @@ export class AppService {
   }
 
   deleteCampaign(id: number){
-    const campaignUrl=`${this.url}/delete/%{id}`;
-    this.http.delete(campaignUrl);
+    const campaignUrl=`${this.url}/${id}`;
+    return this.http.delete(campaignUrl, {responseType: "text"});
+  }
+
+  updateCampaignById(id: number, campaign: Campaign){
+    const campaignUrl = `${this.url}/${id}`;
+    return this.http.patch(campaignUrl, campaign);
   }
 }

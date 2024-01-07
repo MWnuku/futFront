@@ -1,0 +1,62 @@
+<form #campaignForm="ngForm" class="campaign-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Name</mat-label>
+    <input name="name" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Tags</mat-label>
+    <mat-select name="tags" ngModel multiple>
+      <mat-option value="PCs">PCs</mat-option>
+      <mat-option value="TVs">TVs</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Status</mat-label>
+    <mat-select name="status" ngModel>
+      <mat-option value="On">On</mat-option>
+      <mat-option value="Off">Off</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Town</mat-label>
+    <mat-select name="town" ngModel>
+      <mat-option value="Krakow">Krakow</mat-option>
+      <mat-option value="Warszawa">Warszawa</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Radius</mat-label>
+    <input name="radius" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Bid Amount</mat-label>
+    <input name="bidAmount" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Seller Name</mat-label>
+    <input name="sellerName" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Seller Last Name</mat-label>
+    <input name="sellerLastName" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Company Name</mat-label>
+    <input name="companyName" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Balance</mat-label>
+    <input name="balance" ngModel matInput>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button>Submit</button>
+</form>

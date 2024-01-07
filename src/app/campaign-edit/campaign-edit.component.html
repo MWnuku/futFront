@@ -1,0 +1,61 @@
+<form #editForm="ngForm" class="campaign-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Name</mat-label>
+    <input name="name" [(ngModel)] = "campaign.name" ngModel matInput>
+  </mat-form-field>
+
+    <mat-autocomplete class="campaign-full-width" [(ngModel)]="tag" name="tag" ngModel multiple>
+    <mat-label>Tags</mat-label>
+      @for(val of Object.values(KeywordEnum); track $index) {
+          <mat-option value={{val}}>{{ val }}</mat-option>
+      }
+    </mat-autocomplete>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Status</mat-label>
+    <mat-select name="status" [(ngModel)] = "campaign.status" ngModel>
+      <mat-option value="On">On</mat-option>
+      <mat-option value="Off">Off</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Town</mat-label>
+    <mat-select name="town" [(ngModel)] = "campaign.town" ngModel>
+      <mat-option value="Krakow">Krakow</mat-option>
+      <mat-option value="Warszawa">Warszawa</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Radius</mat-label>
+    <input name="radius" [(ngModel)] = "campaign.radius" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Bid Amount</mat-label>
+    <input name="bidAmount" [(ngModel)] = "campaign.bidAmount" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Seller Name</mat-label>
+    <input name="sellerName" [(ngModel)] = "campaign.seller.name" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Seller Last Name</mat-label>
+    <input name="sellerLastName" [(ngModel)] = "campaign.seller.lastName" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Company Name</mat-label>
+    <input name="companyName" [(ngModel)] = "campaign.seller.companyName" ngModel matInput>
+  </mat-form-field>
+
+  <mat-form-field class="campaign-full-width">
+    <mat-label>Balance</mat-label>
+    <input name="balance" [(ngModel)] = "campaign.seller.balance" ngModel matInput>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button>Submit</button>
+</form>

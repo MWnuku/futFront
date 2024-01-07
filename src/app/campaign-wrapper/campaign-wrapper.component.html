@@ -1,0 +1,6 @@
+<div *ngIf="editable">
+  <app-campaign-edit [campaign]="campaign" (editDataEvent)="handleSaveEdition($event)"></app-campaign-edit>
+</div>
+<div *ngIf="!editable">
+  <app-campaign-display (removeItemEvent)="removeItem($event)" [campaign]="campaign" (editItemEvent)="handleEditClick()"></app-campaign-display>
+</div>

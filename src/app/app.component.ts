@@ -21,6 +21,15 @@ import {
 import {
   BrowserAnimationsModule
 } from "@angular/platform-browser/animations";
+import {
+  CampaignWrapperComponent
+} from "./campaign-wrapper/campaign-wrapper.component";
+import {
+  CampaignEditComponent
+} from "./campaign-edit/campaign-edit.component";
+import {Town} from "./models/town";
+import { KeywordEnum } from './models/keyword-enum';
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -29,32 +38,58 @@ import {
   standalone: true,
   imports: [HttpClientModule,
     CampaignDisplayComponent, NgForOf,
-    CampaignInputComponent, CommonModule],
+    CampaignInputComponent, CommonModule, CampaignWrapperComponent, CampaignEditComponent],
   providers: [AppService]
 })
 export class AppComponent {
   title = 'futFront';
   campaigns: Campaign[] = [];
 
+  newCampaign: Campaign = {
+    bidAmount: 10000,
+    name: "aa",
+    radius: 110,
+    seller: {
+      companyName: "aaa",
+      name: 'imie',
+      lastName: 'nazwisko',
+      balance: 100000,
+      campaigns: []
+    },
+    status: "On",
+    tags: [
+      { keyword: KeywordEnum.Electronics },
+      { keyword: KeywordEnum.PCs }
+    ],
+    town: Town.Krakow
+  };
+
   constructor(private appService: AppService) {
   }
 
   ngOnInit() {this.appService.getAllCampaigns().subscribe({
     next: campaign => {
-      console.log('The next value is: ', campaign);
       this.campaigns = campaign;
     },
-    error: err => console.error('An error occurred :', err),
-    complete: () => console.log('There are no more action happen.')
   });
   }
 
   appendData(newCampaign: Campaign){
     this.campaigns.push(newCampaign);
   }
-
   onNewDataEvent(newCampaign: Campaign) {
+
     this.appendData(newCampaign);
+  }
+
+  removeItem(id: number) {
+    this.appService.deleteCampaign(id).subscribe({
+      next: response => {
+        this.campaigns = this.campaigns.filter((campaign: Campaign) => campaign.id !== id);
+        console.log(response)
+      },
+      error: err => {console.log(err)}
+  })
   }
 }
 

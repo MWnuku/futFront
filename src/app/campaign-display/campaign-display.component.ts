@@ -41,5 +41,6 @@ export class CampaignDisplayComponent {
     ],
     town: Town.Krakow
   }
-  @Output() removeItemEvent = new EventEmitter();
+  @Output() removeItemEvent = new EventEmitter<number>();
+  @Output() editItemEvent = new EventEmitter<number>();
 }
